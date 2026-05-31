@@ -3,15 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Reindirizzamento...</title>
-    <meta http-equiv="refresh" content="0; URL='https://frafrafrafrafrafrafrafra.github.io/guidatv/index'">
+    
     <style>
         body {
             margin: 0;
             padding: 0;
-            background: #ffffff;
             height: 100vh;
+            background-color: #f5f7fa;
         }
+        html.dark-mode body { background-color: #1e1e1e; }
+        html.amoled-mode body { background-color: #000000; }
     </style>
+
+    <script>
+        (function() {
+            const theme = localStorage.getItem('themeMode') || (localStorage.getItem('darkMode') === 'true' ? 'dark' : 'light');
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            } else if (theme === 'amoled') {
+                document.documentElement.classList.add('dark-mode', 'amoled-mode');
+            }
+        })();
+    </script>
+
+    <meta http-equiv="refresh" content="0; URL='https://frafrafrafrafrafrafrafra.github.io/guidatv/index'">
 </head>
 <body>
 </body>
