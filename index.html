@@ -5,6 +5,12 @@
     <title>Reindirizzamento...</title>
     
     <style>
+        html {
+            color-scheme: light;
+        }
+        html.dark-mode {
+            color-scheme: dark;
+        }
         body {
             margin: 0;
             padding: 0;
@@ -18,11 +24,19 @@
     <script>
         (function() {
             const theme = localStorage.getItem('themeMode') || (localStorage.getItem('darkMode') === 'true' ? 'dark' : 'light');
+            let themeColor = '#f5f7fa';
             if (theme === 'dark') {
                 document.documentElement.classList.add('dark-mode');
+                themeColor = '#1e1e1e';
             } else if (theme === 'amoled') {
                 document.documentElement.classList.add('dark-mode', 'amoled-mode');
+                themeColor = '#000000';
             }
+            
+            const metaTheme = document.createElement('meta');
+            metaTheme.name = 'theme-color';
+            metaTheme.content = themeColor;
+            document.head.appendChild(metaTheme);
         })();
     </script>
 
